@@ -8,6 +8,7 @@ public class CrashDetector : MonoBehaviour
     [SerializeField] float crashDelay = 1.0f;
     [SerializeField] ParticleSystem crashEffect;
     [SerializeField] AudioClip crashSFX;
+    [SerializeField] string levelToReload;
     bool crashedAlready = false;
 
     void OnTriggerEnter2D(Collider2D other)
@@ -24,6 +25,6 @@ public class CrashDetector : MonoBehaviour
 
     void ReloadScene()
     {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene(levelToReload);
     }
 }

@@ -7,6 +7,7 @@ public class FinishLine : MonoBehaviour
 {
     [SerializeField] float reloadDelay = 1f;
     [SerializeField] ParticleSystem finishEffect;
+    [SerializeField] string levelToLoad;
 
     void OnTriggerEnter2D(Collider2D other) 
     {
@@ -14,13 +15,13 @@ public class FinishLine : MonoBehaviour
         {
             finishEffect.Play();
             GetComponent<AudioSource>().Play();
-            Invoke("ReloadScene", reloadDelay);
+            Invoke("NextScene", reloadDelay);
             
         }
     }
 
-    void ReloadScene()
+    void NextScene()
     {
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene(levelToLoad);
     }
 }
